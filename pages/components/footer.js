@@ -1,4 +1,4 @@
-import { companyName } from "@/pages/utils"
+import CompanyName from "../utils"
 
 function Footer() {
   return (
@@ -283,7 +283,7 @@ function Footer() {
               </ul>
 
               <p className="mt-8 text-xs text-gray-500 sm:mt-0">
-                &copy; 2024. {companyName}. All rights reserved.
+                &copy; 2024. <CompanyName />. All rights reserved.
               </p>
             </div>
           </div>

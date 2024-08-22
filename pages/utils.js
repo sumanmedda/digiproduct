@@ -1,1 +1,3 @@
-export const companyName = "Sv Envirotech"
+export default function CompanyName() {
+  return "Sv Envirotech"
+}

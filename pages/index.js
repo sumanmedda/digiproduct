@@ -1,5 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react"
-import { companyName } from "./utils"
+import CompanyName from "./utils"
+
 export default function Home() {
   const { data: session } = useSession()
   if (session) {
@@ -39,7 +40,7 @@ export default function Home() {
     <>
       <div className="flex flex-col min-h-screen justify-center items-center max-w-4xl m-auto">
         <h1 className="text-4xl font-bold max-w-lg text-center">
-          Welcome to Admin Panel of {companyName}
+          Welcome to Admin Panel of <CompanyName />
         </h1>
         <p>...</p>
         <p className="my-2">Login Into The Admin Panel</p>
