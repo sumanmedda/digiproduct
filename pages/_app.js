@@ -1,5 +1,5 @@
-import Footer from "@/components/footer"
-import Header from "@/components/header"
+import Footer from "@/pages/components/footer"
+import Header from "@/pages/components/header"
 import "@/styles/globals.css"
 import { SessionProvider } from "next-auth/react"
 import { Poppins } from "next/font/google"

@@ -1,5 +1,5 @@
-import { companyName } from "./utils"
 import { useSession, signIn, signOut } from "next-auth/react"
+import { companyName } from "./utils"
 export default function Home() {
   const { data: session } = useSession()
   if (session) {
