@@ -3,6 +3,7 @@ import Header from "@/pages/components/header"
 import "@/styles/globals.css"
 import { SessionProvider } from "next-auth/react"
 import { Poppins } from "next/font/google"
+import { Toaster } from "react-hot-toast"
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" })
 export default function App({
@@ -16,6 +17,7 @@ export default function App({
       <SessionProvider session={session}>
         <Header />
         <Component {...pageProps} />
+        <Toaster position="top-center" reverseOrder={false} />
         <Footer />
       </SessionProvider>
     </main>

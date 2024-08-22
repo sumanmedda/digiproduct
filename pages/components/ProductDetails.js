@@ -4,11 +4,17 @@ import { useState } from "react"
 import { ReactSortable } from "react-sortablejs"
 import toast from "react-hot-toast"
 
-export default function Product() {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
-  const [price, setPrice] = useState("")
-  const [images, setImages] = useState([])
+export default function Product({
+  _id,
+  title: existingTitle,
+  description: existingDescription,
+  price: existingPrice,
+  images: existingImages,
+}) {
+  const [title, setTitle] = useState(existingTitle || "")
+  const [description, setDescription] = useState(existingDescription || "")
+  const [price, setPrice] = useState(existingPrice || "")
+  const [images, setImages] = useState(existingImages || [])
   const router = useRouter()
   const [redirect, setRedirect] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
@@ -31,8 +37,13 @@ export default function Product() {
       images,
     }
 
-    await axios.post("/api/add-product", data)
-    toast.success("Product created!!")
+    if (_id) {
+      await axios.put("/api/add-product", { ...data, _id })
+      toast.success("Product updated!!")
+    } else {
+      await axios.post("/api/add-product", data)
+      toast.success("Product created!!")
+    }
 
     // Redirect after saving
     setRedirect(true)
